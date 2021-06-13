@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="layout/template"> 
+<head> 
+	<meta charset="UTF-8" /> 
+	<title>Insert title here</title>
+</head>
+<div layout:fragment="content">
+	<table>
+		<tr>
+			<td>글 제목</td>
+			<td><input type="text" id="subject" placeholder="제목을 입력해주세요."></td>
+		</tr>
+		<tr>
+			<td>플랫폼</td>
+			<td><input type="text" id="platform" placeholder="제목을 입력해주세요."></td>
+		</tr>
+		<tr>
+			<td>게임명</td>
+			<td><input type="text" id="title" placeholder="제목을 입력해주세요."></td>
+		</tr>
+		<tr>
+			<td>사진 업로드</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>내용</td>
+			<td><textarea id="content"></textarea></td>
+		</tr>
+	</table>
+	<button id="btnCancel">취소</button>
+	<button id="btnWrite">글 쓰기</button>
+</div>
+</html>

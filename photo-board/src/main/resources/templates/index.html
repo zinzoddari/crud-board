@@ -1,0 +1,13 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="layout/template"> 
+<head> 
+	<meta charset="UTF-8" /> 
+	<title>Insert title here</title> 
+</head>
+<div layout:fragment="content">
+	<a href="/auth/signup" id="btnSignUp" role="button" class="btn btn-primary">회원가입</a>
+	<a href="/board/write" id="btnWrite" role="button" class="btn btn-primary">글 등록</a>
+</div>
+</html>

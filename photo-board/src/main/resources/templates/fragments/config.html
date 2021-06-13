@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="configFragment">
+		<meta charset="UTF-8" />
+		<meta name="_csrf" th:content="${_csrf.token}"/>
+		<meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+		
+		<!-- bootstrap CDN -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		
+		<!-- jQuery CDN -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		
+		<!-- Ajax CDN -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		
+		
+		
+		
+		<!-- 공통 util js -->
+		<script defer type="text/javascript" src="/js/utils/script-utils.js"></script>
+	</head>
+</html>

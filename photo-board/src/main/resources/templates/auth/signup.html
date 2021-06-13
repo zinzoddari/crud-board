@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+	  layout:decorator="layout/template"> 
+<head> 
+	<meta charset="UTF-8" /> 
+	<title>Insert title here</title>
+</head>
+<div layout:fragment="content">
+	<form id="form">
+	<table>
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" id="email" placeholder="제목을 입력해주세요."></td>
+		</tr>
+		<tr>
+			<td>이름</td>
+			<td><input type="text" id="name" placeholder="제목을 입력해주세요."></td>
+		</tr>
+		<tr>
+			<td>비밀번호</td>
+			<td><input type="password" id="pwd" placeholder="제목을 입력해주세요."></td>
+		</tr>
+	</table>
+	<button id="btnCancel">취소</button>
+	<button id="btnNext">다음</button>
+	
+	<table>
+		<tr>
+			<td>인증번호</td>
+			<td><input type="text" id="number" placeholder="인증번호를 입력해주세요."></td>
+		</tr>
+	</table>
+	</form>
+	<a href="#//ZINZO" id="btnSignUp" role="button" class="btn btn-primary">회원가입</a>
+</div>
+</html>
