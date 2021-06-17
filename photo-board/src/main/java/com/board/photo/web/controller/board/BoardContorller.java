@@ -31,6 +31,8 @@ public class BoardContorller {
 		
 		result.put("result", "success");
 		
+		boardMstService.save(boardSaveReqDto);
+		
 		if(log.isDebugEnabled()) {
 			log.debug("boardSaveReqDto : " + boardSaveReqDto);
 		}

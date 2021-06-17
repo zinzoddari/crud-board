@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.board.photo.domain.user.CustUser;
-import com.board.photo.service.boardmst.BoardMstService;
+import com.board.photo.service.custuser.CustUserService;
 import com.board.photo.web.dto.CustUserReqDto;
 
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 public class AuthContorller {
 	
-	private final BoardMstService custUserService;
+	private final CustUserService custUserService;
 	
 	@PostMapping("/auth/signup")
 	@ResponseBody

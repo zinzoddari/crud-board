@@ -13,6 +13,7 @@ var write = {
 	save : function() {
 		var param = {
 	            subject: $('#subject').val(),
+	            menu : 'photo',
 	            writer : 'admin',
 	            title : $('#title').val(),
 	            platform : $('#platform').val(),

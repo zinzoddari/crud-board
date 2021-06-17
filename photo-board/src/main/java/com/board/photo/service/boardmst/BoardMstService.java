@@ -1,40 +1,38 @@
 package com.board.photo.service.boardmst;
-
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.board.photo.domain.user.CustUser;
-import com.board.photo.repository.CustUserRepository;
-import com.board.photo.web.dto.CustUserReqDto;
+import com.board.photo.domain.board.BoardMst;
+import com.board.photo.repository.BoardMstRepository;
+import com.board.photo.utils.CommonUtils;
+import com.board.photo.web.dto.BoardSaveReqDto;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Service
-public class BoardMstService implements UserDetailsService {
+public class BoardMstService {
 	
-	private final CustUserRepository custUserRepository;
+	private final BoardMstRepository boardMstRepository;
 	
-	public String save(CustUserReqDto custUserDto) {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		custUserDto.setPwd(encoder.encode(custUserDto.getPwd()));
+	public String save(BoardSaveReqDto boardSaveReqDto) {
 		
-		CustUser custUser = CustUser.builder()
-				.email(custUserDto.getEmail())
-				.name(custUserDto.getName())
-				.pwd(custUserDto.getPwd())
-				.auth("U")
-				.state("A").build();
+		BoardMst boardMst = BoardMst.builder()
+				.svcReqNo(CommonUtils.getUniqueId())
+				.menu(boardSaveReqDto.getMenu())
+				.boardNo(getLastBoardNo(boardSaveReqDto.getMenu()) + 1)
+				.writer(boardSaveReqDto.getWriter())
+				.useYn("Y").build();
 		
-		return custUserRepository.save(custUser).getEmail();
+		return boardMstRepository.save(boardMst).getSvcReqNo();
 	}
+	
+	public int getLastBoardNo(String menu) {
+		BoardMst boardMst = boardMstRepository.findByMenuDesc(menu);
+		
+		if(boardMst == null) {
+			return 0;
+		}
 
-	@Override
-	public CustUser loadUserByUsername(String email) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return custUserRepository.findByEmail(email)
-				.orElseThrow(() -> new UsernameNotFoundException(email));
-	}
+        return boardMst.getBoardNo();
+    }
 }

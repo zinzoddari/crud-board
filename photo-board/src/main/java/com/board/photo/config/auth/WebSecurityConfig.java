@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.board.photo.service.boardmst.BoardMstService;
+import com.board.photo.service.custuser.CustUserService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Configuration 
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter { // 2
 
-  private final BoardMstService userService; // 3
+  private final CustUserService userService; // 3
 
   @Override
   public void configure(WebSecurity web) { // 4
